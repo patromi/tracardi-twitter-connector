@@ -1,0 +1,2 @@
+recursive-include tracardi_sends_a_tweet/model *
+recursive-include tracardi_sends_a_tweet/service *
