@@ -12,6 +12,7 @@ You need to add at leats Read and write permisions.
 
 ## Message configuration
 * id - Enter your resource id
+
 Open your app in dev panel and click the Keys and tokens:
 ![Keys](https://cdn.discordapp.com/attachments/871703058323746866/898893071750672384/unknown.png)
 
@@ -24,8 +25,8 @@ Open your app in dev panel and click the Keys and tokens:
 
 ```json
 init = {
-    'source': {
-                'id': '55584df6-9ee3-4acd-a0ea-e555122f3dbc'
+    "source": {
+                "id": "55584df6-9ee3-4acd-a0ea-e555122f3dbc"
                 },
     "config": {
         "consumer_key": "",
