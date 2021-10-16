@@ -1,9 +1,8 @@
-from tracardi_dot_notation.dot_accessor import DotAccessor
 from tracardi_plugin_sdk.action_runner import ActionRunner
 from tracardi_plugin_sdk.domain.register import Plugin, Spec, MetaData
 from tracardi_plugin_sdk.domain.result import Result
-from tracardi_sends_a_tweet.model.model import Data, Config, Message
-from tracardi_sends_a_tweet.service.sendman import SendMan
+from tracardi_twitter_connector.model.model import Data, Config, Message
+from tracardi_twitter_connector.service.sendman import SendMan
 from tracardi.service.storage.driver import storage
 from tracardi_dot_notation.dot_accessor import DotAccessor
 from tracardi.domain.resource import Resource
@@ -36,7 +35,7 @@ def register() -> Plugin:
     return Plugin(
         start=False,
         spec=Spec(
-            module='tracardi_sends_a_tweet.plugin',
+            module='tracardi_twitter_connector.plugin',
             className='TwitterActions',
             inputs=["payload"],
             outputs=['payload'],
@@ -44,7 +43,7 @@ def register() -> Plugin:
             license="MIT",
             author="Patryk Migaj",
             init={'source': {
-                'id': '55584df6-9ee3-4acd-a0ea-e555122f3dbc'
+                'id': None
             },
                 "config": {
                     "consumer_key": None,
@@ -54,12 +53,12 @@ def register() -> Plugin:
                 "message": {"message": "Welcome aboard Please pay attention as we demonstrate The safety features of "
                                        "this aircraft"}}),
         metadata=MetaData(
-            name='tracardi-sends-a-tweet',
+            name='Twitter',
             desc='Purpose of this plugin is operations on Twitter account such as send,like,share tweets.',
             type='flowNode',
             width=200,
             height=100,
-            icon='icon',
-            group=["General"]
+            icon='twitter',
+            group=["Connectors"]
         )
     )

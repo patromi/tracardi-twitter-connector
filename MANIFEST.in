@@ -1,2 +1,2 @@
-recursive-include tracardi_sends_a_tweet/model *
-recursive-include tracardi_sends_a_tweet/service *
+recursive-include tracardi_twitter_connector/model *
+recursive-include tracardi_twitter_connector/service *

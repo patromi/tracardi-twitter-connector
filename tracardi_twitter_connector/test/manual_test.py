@@ -5,7 +5,7 @@ from tracardi.domain.profile import Profile
 from tracardi.domain.session import Session
 from tracardi_plugin_sdk.service.plugin_runner import run_plugin
 
-from tracardi_sends_a_tweet.plugin import TwitterActions
+from tracardi_twitter_connector.plugin import TwitterActions
 
 init = {
     'source': {
