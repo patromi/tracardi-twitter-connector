@@ -14,7 +14,7 @@ You need to add at leats Read and write permisions.
 * id - Enter your resource id
 
 Open your app in dev panel and click the Keys and tokens:
-![Keys](https://cdn.discordapp.com/attachments/871703058323746866/898893071750672384/unknown.png)
+![Keys](https://cdn.discordapp.com/attachments/840335225287475260/898977586351312896/Untitled.png)
 
 * consumer_key: None, You can find in Consumer Keys API Key and Secret 
 * consumer_secret: None, - You can find it in Consumer Keys API Key and Secret 
