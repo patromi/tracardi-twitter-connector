@@ -2,20 +2,33 @@ from tracardi_dot_notation.dot_accessor import DotAccessor
 from tracardi_plugin_sdk.action_runner import ActionRunner
 from tracardi_plugin_sdk.domain.register import Plugin, Spec, MetaData
 from tracardi_plugin_sdk.domain.result import Result
-from tracardi_sends_a_tweet.model.model import Configuration
-from tracardi_sends_a_tweet.service import sendman
+from tracardi_sends_a_tweet.model.model import Data, Config, Message
+from tracardi_sends_a_tweet.service.sendman import SendMan
+from tracardi.service.storage.driver import storage
+from tracardi_dot_notation.dot_accessor import DotAccessor
+from tracardi.domain.resource import Resource
 
 
 class TwitterActions(ActionRunner):
 
-    def __init__(self, **kwargs):
-        self.config = Configuration(**kwargs)
+    @staticmethod
+    async def build(**kwargs) -> 'TwitterActions':
+        config = Config(**kwargs)
+        data = Data(**kwargs["config"])
+        message = Message(**kwargs["message"])
+        source = await storage.driver.resource.load(config.source.id)
+        source.config = data.dict()
+        plugin = TwitterActions(message, source)
+        return plugin
+
+    def __init__(self, message: Message, source: Resource):
+        self.message = message
+        self.sendman = SendMan(source.config)
 
     async def run(self, payload):
         dot = DotAccessor(self.profile, self.session, payload, self.event, self.flow)
-        consumer_key = dot[self.config.consumer_key]
-        consumer_secret_key = dot[self.config.consumer_secret_key]
-        send_status = sendman.send(consumer_key, consumer_secret_key)
+        message = dot[self.message]
+        send_status = await self.sendman.send(message)
         if send_status:
             return Result(port="payload", value=payload)
         else:
