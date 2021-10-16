@@ -47,4 +47,4 @@ This node does not process input payload.
 
 # Output
 
-This node doesn't return an Output
+This node only return True if tweet send succesfull
