@@ -28,11 +28,8 @@ class TwitterActions(ActionRunner):
     async def run(self, payload):
         dot = DotAccessor(self.profile, self.session, payload, self.event, self.flow)
         message = dot[self.message]
-        send_status = await self.sendman.send(message)
-        if send_status:
+        if await self.sendman.send(message):
             return Result(port="payload", value=payload)
-        else:
-            return Result(port="payload", value=send_status)
 
 
 def register() -> Plugin:

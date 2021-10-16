@@ -1,7 +1,7 @@
 import tweepy
 
 
-class SendMan():
+class SendMan:
     def __init__(self, config):
         self.config = config
 
