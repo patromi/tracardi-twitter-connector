@@ -43,14 +43,16 @@ def register() -> Plugin:
             version='0.1',
             license="MIT",
             author="Patryk Migaj",
-            init={
-
-                "consumer_key": None,
-
-                "consumer_secret_key": None,
-
-            }
-        ),
+            init={'source': {
+                'id': '55584df6-9ee3-4acd-a0ea-e555122f3dbc'
+            },
+                "config": {
+                    "consumer_key": None,
+                    "consumer_secret": None,
+                    "access_token": None,
+                    "access_token_secret": None},
+                "message": {"message": "Welcome aboard Please pay attention as we demonstrate The safety features of "
+                                       "this aircraft"}}),
         metadata=MetaData(
             name='tracardi-sends-a-tweet',
             desc='Purpose of this plugin is operations on Twitter account such as send,like,share tweets.',

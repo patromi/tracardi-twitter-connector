@@ -8,12 +8,18 @@ from tracardi_plugin_sdk.service.plugin_runner import run_plugin
 from tracardi_sends_a_tweet.plugin import TwitterActions
 
 init = {
+    'source': {
+                'id': '55584df6-9ee3-4acd-a0ea-e555122f3dbc'
+                },
+    "config": {
+        "consumer_key": "",
+        "consumer_secret": "",
+        "access_token": "",
+        "access_token_secret": ""
+},
+    "message": {"message": "Witam serdecznie"}
 
-        "consumer_key": "Id1IRCPDck8VccPeDDU4L6bT6",
-
-        "consumer_secret_key": "4ITtgk7jDKDiLvBQLuWMHMTtZmh1Xp1lFfRa3BEOoxS9zAqnC5",
-
-    }
+}
 payload = {}
 profile = Profile(id="profile-id")
 event = Event(id="event-id",
