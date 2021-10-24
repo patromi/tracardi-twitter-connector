@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setup(
     name='tracardi-sends-a-tweet',
     version='0.1',
-    description='Purposie of this plugin is operation on Twitter account such as send,like,share tweets.',
+    description='This plugin is tweets to Twitter wall.',
     long_description=long_description,
     long_description_content_type="text/markdown",
     author='Patryk Migaj',
@@ -14,7 +14,8 @@ setup(
     packages=['tracardi_sends_a_tweet'],
     install_requires=[
         'tracardi-plugin-sdk>=0.6.21',
-        'tracardi>=0.6.18,<0.7.0'
+        'tracardi>=0.6.18,<0.7.0',
+        'tweepy'
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
