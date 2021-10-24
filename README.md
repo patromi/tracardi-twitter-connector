@@ -1,4 +1,4 @@
-# Language detection Plugin
+# Twitter Connector
 
 The purpose of this plugin is sending tweets via twitter app
 
